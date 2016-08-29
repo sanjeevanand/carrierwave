@@ -1,0 +1,856 @@
+  [1m[35m (424.4ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (398.4ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (17.3ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('5665829309206219125', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateResumes (20160822111700)
+  [1m[35m (381.1ms)[0m  [1m[35mCREATE TABLE `resumes` (`id` int AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `attachment` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20160822111700')[0m
+  [1m[35m (47.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2016-08-22 11:18:37', '2016-08-22 11:18:37')[0m
+  [1m[35m (57.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('5665829309206219125')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `resumes`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'resumes'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'carrierwave_development'
+  AND fk.table_name = 'resumes'
+[0m
+Started GET "/" for 127.0.0.1 at 2016-08-22 17:01:22 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 216ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /home/sanjeev/sanruby/pavan/carrierwave/app/assets/config
+  /home/sanjeev/sanruby/pavan/carrierwave/app/assets/images
+  /home/sanjeev/sanruby/pavan/carrierwave/app/assets/javascripts
+  /home/sanjeev/sanruby/pavan/carrierwave/app/assets/stylesheets
+  /home/sanjeev/sanruby/pavan/carrierwave/vendor/assets/javascripts
+  /home/sanjeev/sanruby/pavan/carrierwave/vendor/assets/stylesheets
+  /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/jquery-rails-4.2.1/vendor/assets/javascripts
+  /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actioncable-5.0.0.1/lib/assets/compiled
+  /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts):
+    4:     <title>Carrierwave</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/resumes.scss:4
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__3981556744837793408_47080933066640'
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.7ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.1ms)
+Started GET "/" for 127.0.0.1 at 2016-08-22 17:02:09 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 1556ms (Views: 1541.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-22 17:02:13 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (44.9ms)
+Completed 200 OK in 97ms (Views: 88.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:02:34 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0EnqPSO9HGYQklW3qZwBb6ihSCpC/pug6W8GqeWz7s9CQ7VxtqD2YcuPn1SNKCaohtktir+9STerb4QOMx1MeA==", "resume"=>{"name"=>"sanjeev", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x00562c67e3aa28 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-18549-o2zr86.png>, @original_filename="Article-Image.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"Article-Image.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('sanjeev', 'Article-Image.png', '2016-08-22 11:32:34', '2016-08-22 11:32:34')[0m
+  [1m[35m (62.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 108ms (ActiveRecord: 63.3ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:02:34 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-22 17:02:38 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 37ms (Views: 34.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:02:55 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z5iUBmtCbH6byswtNCCKGc0TjDonxnt1TXLorKQ6+qhdkstK/l+GeUDXBs4QlK3e42vpmtqFqeIPcmoLcpRYHw==", "resume"=>{"name"=>"test", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x007fc63c089558 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-18549-7tzvfh.jpg>, @original_filename="AboutIS.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"AboutIS.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('test', 'AboutIS.jpg', '2016-08-22 11:32:55', '2016-08-22 11:32:55')[0m
+  [1m[35m (84.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 91ms (ActiveRecord: 84.5ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:02:55 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-22 17:03:45 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:04:00 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L4mDbrgjXhCgpMJcq6/AFrs7r4I58tjl2L7Va3H2U1G9g9wiLT60F3u5CL+PG+fRlUPKIsSxCnKavlfMp1jx5g==", "resume"=>{"name"=>"fgh", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x007fc64abd10d8 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-18549-1tguywq.jpg>, @original_filename="AboutIS.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"AboutIS.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('fgh', 'AboutIS.jpg', '2016-08-22 11:34:00', '2016-08-22 11:34:00')[0m
+  [1m[35m (51.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 58ms (ActiveRecord: 52.1ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:04:00 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-22 17:20:33 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 26ms (Views: 16.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:20:44 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NmOBL3uzttc0FR6k32ykXbIokSiO+09xQ8ZSc5OE6tGkad5j7q5c0O8I1Ef72IOanFD0iHO4neYBxtDURSpIZg==", "resume"=>{"name"=>"hh", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x007fc64a314be8 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-18549-wg59v9.jpg>, @original_filename="20160319221152.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"20160319221152.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('hh', '20160319221152.jpg', '2016-08-22 11:50:44', '2016-08-22 11:50:44')[0m
+  [1m[35m (92.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 127ms (ActiveRecord: 92.5ms)
+
+
+  
+NameError (undefined local variable or method `u' for #<ResumesController:0x007fc64a316358>):
+  
+app/controllers/resumes_controller.rb:14:in `create'
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.4ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.7ms)
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:21:55 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lCXWTdnBTsnb++RaKdsJ7d7c0GSqcloAuj5wNG92mffcMkGtRdr23Gc31h2v5l2FywTxoY66x2aMTZ0LGYicgg==", "resume"=>{"name"=>"hh", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x007fc64abf7e90 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-18549-xckl0w.jpg>, @original_filename="20160319221152.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"20160319221152.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('hh', '20160319221152.jpg', '2016-08-22 11:51:55', '2016-08-22 11:51:55')[0m
+  [1m[35m (72.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 118ms (ActiveRecord: 73.3ms)
+
+
+  
+NoMethodError (undefined method `avatar' for #<Resume:0x007fc64ac0eff0>):
+  
+app/controllers/resumes_controller.rb:14:in `create'
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.4ms)
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:23:10 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lCXWTdnBTsnb++RaKdsJ7d7c0GSqcloAuj5wNG92mffcMkGtRdr23Gc31h2v5l2FywTxoY66x2aMTZ0LGYicgg==", "resume"=>{"name"=>"hh", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x007fc649a36418 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-18549-109umq5.jpg>, @original_filename="20160319221152.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"20160319221152.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('hh', '20160319221152.jpg', '2016-08-22 11:53:10', '2016-08-22 11:53:10')[0m
+  [1m[35m (73.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 87ms (ActiveRecord: 74.3ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:23:10 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-22 17:25:13 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 25ms (Views: 16.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:25:28 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zHWnB8u/fm9VL3L5BUvPtw2gdjWtKPqibr3NYKc2+3Bef/hLXqKUaI4yuBoh/+hwI9gTlVBrKDUsvU/HcZhZxw==", "resume"=>{"name"=>"sa", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x00562c664b6700 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-18549-j1habb.jpg>, @original_filename="546783_394944917243859_1872269396_n.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"546783_394944917243859_1872269396_n.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (13.3ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('sa', '546783_394944917243859_1872269396_n.jpg', '2016-08-22 11:55:28', '2016-08-22 11:55:28')[0m
+  [1m[35m (41.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 54.9ms)
+
+
+  
+NoMethodError (undefined method `url=' for #<AttachmentUploader:0x00562c6645d218>):
+  
+app/controllers/resumes_controller.rb:14:in `create'
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.2ms)
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:27:39 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r+cihWqQbkghlCMP6nPql+cQS26k6XperL8ywvhNkKzn8LVl9ovWXZ1YEUhsTr7/8shqq4Ah5ziazN/9jrOV2Q==", "resume"=>{"name"=>"sa", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x007fc64c113ef0 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-18549-1i08d5k.jpg>, @original_filename="546783_394944917243859_1872269396_n.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"546783_394944917243859_1872269396_n.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (19.1ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('sa', '546783_394944917243859_1872269396_n.jpg', '2016-08-22 11:57:39', '2016-08-22 11:57:39')[0m
+  [1m[35m (64.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 98ms (ActiveRecord: 85.2ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:27:39 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:33:00 +0530
+Processing by ResumesController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- mini_magick (You may need to install the mini_magick gem)):
+  
+app/uploaders/attachment_uploader.rb:12:in `include'
+app/uploaders/attachment_uploader.rb:12:in `<class:AttachmentUploader>'
+app/uploaders/attachment_uploader.rb:3:in `<top (required)>'
+app/models/resume.rb:2:in `<class:Resume>'
+app/models/resume.rb:1:in `<top (required)>'
+app/controllers/resumes_controller.rb:3:in `index'
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.2ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.4ms)
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:46:06 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 211ms (Views: 196.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-22 17:46:09 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 33ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:46:20 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0BIgyBC1umMJPUy3sl9AM5Olb+FYdoKiDik7Eq0xEkdCGH+EhahQZNIghlSW62f0vd0KQaU1UDVMKbm1e5+w8A==", "resume"=>{"name"=>"test", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x00563932716648 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-19601-6ks0oi.jpg>, @original_filename="AboutIS.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"AboutIS.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 52ms (Views: 46.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:48:39 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 60ms (Views: 49.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-22 17:48:42 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:48:54 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SG62zEvJOdfgyLXXSKt56OwhAx0mHYv0OTA/DPDZSezaZOmA3tTT0DvVfzRsH14vwllmvdteWWN7ML2rJnfrWw==", "resume"=>{"name"=>"s", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x007f94e42d77d0 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-19601-1imxn6o.png>, @original_filename="GIS-V2-01.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"GIS-V2-01.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 33ms (Views: 24.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:57:24 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 207ms (Views: 192.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-22 17:57:27 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:57:40 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NKquKZBQ6AAL7/CwPmAHYwmxJJfLn2xfDC9JZPqD8NymoPFlBU0CB9DyOlMa1CCkJ8lBNzbcvshOL8vDLC1Saw==", "resume"=>{"name"=>"sa", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x0055f7600a5980 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-21730-t9upm4.jpg>, @original_filename="546783_394944917243859_1872269396_n.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"546783_394944917243859_1872269396_n.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (29.0ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('sa', '546783_394944917243859_1872269396_n.jpg', '2016-08-22 12:27:40', '2016-08-22 12:27:40')[0m
+  [1m[35m (38.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 258ms (ActiveRecord: 67.5ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:57:40 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 43ms (Views: 41.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/resumes/1" for 127.0.0.1 at 2016-08-22 17:59:07 +0530
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mYkOq0rPbZVHafnQ8WV+aiat8TKwovcMl1AnH6NWk8/RnplL1tTVgPuly5d3WCoCM3XQ95RqamqhI8og1aiWug==", "id"=>"1"}
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT  `resumes`.* FROM `resumes` WHERE `resumes`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (20.9ms)[0m  [1m[31mDELETE FROM `resumes` WHERE `resumes`.`id` = 1[0m
+  [1m[35m (61.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 91ms (ActiveRecord: 82.4ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:59:07 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 43ms (Views: 41.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/resumes/2" for 127.0.0.1 at 2016-08-22 17:59:08 +0530
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6lhR953uhwW+VgIvO27UDw1FSMET3A3zazRT1JuIMX6iT8YXAfU/EAKaMGi9U4BnGJ1pBDcUkJVdR77r7XY0Cw==", "id"=>"2"}
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT  `resumes`.* FROM `resumes` WHERE `resumes`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (21.7ms)[0m  [1m[31mDELETE FROM `resumes` WHERE `resumes`.`id` = 2[0m
+  [1m[35m (45.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 72ms (ActiveRecord: 67.9ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:59:08 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/resumes/3" for 127.0.0.1 at 2016-08-22 17:59:08 +0530
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Y2eSXk+pcdLga/9FynVVT9CseDfUty8jqKx0WylGX70rcAW+07LJx1ynzQJMSAEnxXRZ8vB/skWe35lkX7hayA==", "id"=>"3"}
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT  `resumes`.* FROM `resumes` WHERE `resumes`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM `resumes` WHERE `resumes`.`id` = 3[0m
+  [1m[35m (103.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 108ms (ActiveRecord: 104.5ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:59:08 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/resumes/4" for 127.0.0.1 at 2016-08-22 17:59:09 +0530
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lROBJs47d7NRydutDokezj47q1KmuJSWfQrwYICL0UPdBBbGUiDPpu0F6eqItEqmK+OKl4JwCfBLeR1f9nXUNg==", "id"=>"4"}
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT  `resumes`.* FROM `resumes` WHERE `resumes`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (21.4ms)[0m  [1m[31mDELETE FROM `resumes` WHERE `resumes`.`id` = 4[0m
+  [1m[35m (38.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 62ms (ActiveRecord: 59.8ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:59:09 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/resumes/5" for 127.0.0.1 at 2016-08-22 17:59:09 +0530
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FeRWGgEOwdoycUn+QShepRpbbe9eQWlEUHqdUH4nYTNd88H6nRV5z469e7nHFQrND4NMKnqJ9CJmCXBvCNlkRg==", "id"=>"5"}
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT  `resumes`.* FROM `resumes` WHERE `resumes`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM `resumes` WHERE `resumes`.`id` = 5[0m
+  [1m[35m (53.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 57ms (ActiveRecord: 54.1ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:59:09 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/resumes/6" for 127.0.0.1 at 2016-08-22 17:59:09 +0530
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HrE1N90Wqag3kTH9KAStDGvSGTnLvPVEQUyztYsKk+pWpqLXQQ0RvYtdA7quOflkfgo4/O90aCJ3P16K/fSWnw==", "id"=>"6"}
+  [1m[36mResume Load (0.4ms)[0m  [1m[34mSELECT  `resumes`.* FROM `resumes` WHERE `resumes`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (23.1ms)[0m  [1m[31mDELETE FROM `resumes` WHERE `resumes`.`id` = 6[0m
+  [1m[35m (32.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 60ms (ActiveRecord: 55.7ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:59:09 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/resumes/7" for 127.0.0.1 at 2016-08-22 17:59:10 +0530
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ILNjlF/CqNWeA1R43LZp0kUhWUsC0cujf7V8aKKRJQBopPR0w9kQwCLPZj9aiz26UPl4jiYZVsVJxpFX1G8gdQ==", "id"=>"7"}
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT  `resumes`.* FROM `resumes` WHERE `resumes`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (14.6ms)[0m  [1m[31mDELETE FROM `resumes` WHERE `resumes`.`id` = 7[0m
+  [1m[35m (50.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 68ms (ActiveRecord: 65.1ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:59:10 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/resumes/8" for 127.0.0.1 at 2016-08-22 17:59:10 +0530
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2/fXXChVffmzV2dIgbgOvBJqF74aSs1WfVXsP1u6SdiT4EC8tE7F7A+bVQ8HhVrUB7I2ez6CUDBLJgEALURMrQ==", "id"=>"8"}
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT  `resumes`.* FROM `resumes` WHERE `resumes`.`id` = 8 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM `resumes` WHERE `resumes`.`id` = 8[0m
+  [1m[35m (45.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 50ms (ActiveRecord: 46.5ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:59:10 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 23ms (Views: 22.4ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/resumes/9" for 127.0.0.1 at 2016-08-22 17:59:10 +0530
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"p9hcJo43pGuIp2rL+XIat4stFqOk9z+ZrvVJRUZcPPPvz8vGEiwcfjRrWIx/T07fnvU3ZoA/ov+YhqR6MKI5hg==", "id"=>"9"}
+  [1m[36mResume Load (0.4ms)[0m  [1m[34mSELECT  `resumes`.* FROM `resumes` WHERE `resumes`.`id` = 9 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM `resumes` WHERE `resumes`.`id` = 9[0m
+  [1m[35m (37.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 42ms (ActiveRecord: 38.3ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:59:10 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-22 17:59:15 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 17:59:29 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q5H5aTUK4cFy5egFjAh4gEKTXtrZUNvwAS47cutD0Y7Rm6YloBcLxqn4IuaovF9HbOs7eiQTCWdDLrnVPe1zOQ==", "resume"=>{"name"=>"j", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x007ff27d1dce38 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-21730-1yta1mn.jpg>, @original_filename="AboutIS.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"AboutIS.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (26.0ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('j', 'AboutIS.jpg', '2016-08-22 12:29:29', '2016-08-22 12:29:29')[0m
+  [1m[35m (61.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 227ms (ActiveRecord: 87.4ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 17:59:29 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-22 18:14:03 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 34ms (Views: 24.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 18:14:21 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HzjFQoQRODYMJsE7ME8ZZoBKMUBZVOwTrdOZuFFettGNMpoOEQzSMdc7C9gU+z6hrjJU4KQXPoTv0xsfh/AUZg==", "resume"=>{"name"=>"aaa", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x007ff26c05c150 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-21730-rbazwo.jpg>, @original_filename="Innovation-Stars.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"Innovation-Stars.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (24.2ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('aaa', 'Innovation-Stars.jpg', '2016-08-22 12:44:21', '2016-08-22 12:44:21')[0m
+  [1m[35m (75.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 303ms (ActiveRecord: 99.9ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 18:14:21 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 18:40:38 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 198ms (Views: 184.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 18:41:41 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 18:52:55 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 55ms (Views: 45.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/uploads/resume/attachment/10/AboutIS.jpg" for 127.0.0.1 at 2016-08-22 18:52:57 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/uploads/resume/attachment/10/AboutIS.jpg"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered collection of /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [5 times] (2.0ms)
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (24.9ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (50.5ms)
+Started DELETE "/resumes/10" for 127.0.0.1 at 2016-08-22 18:53:05 +0530
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fmHl9hsOJ8TZqAdQSVr+C4VLWX0pTNyL4pw77VrrnVs2dnIWhxWf0WVkNRfPZ6pjkJN4uA2EQe3U79bSLBWYLg==", "id"=>"10"}
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT  `resumes`.* FROM `resumes` WHERE `resumes`.`id` = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM `resumes` WHERE `resumes`.`id` = 10[0m
+  [1m[35m (46.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 54ms (ActiveRecord: 47.2ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 18:53:05 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/resumes/11" for 127.0.0.1 at 2016-08-22 18:53:07 +0530
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6zvjcT534R6PvfkzenSi2KMS1evPNX+5Y1l1QffTp92jLHSRomxZCzNxy3T8Sfawtsr0Luv94t9VKph+gS2iqA==", "id"=>"11"}
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT  `resumes`.* FROM `resumes` WHERE `resumes`.`id` = 11 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (16.6ms)[0m  [1m[31mDELETE FROM `resumes` WHERE `resumes`.`id` = 11[0m
+  [1m[35m (49.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 69ms (ActiveRecord: 66.5ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 18:53:07 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-22 18:53:09 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/card/short_trivia" for 127.0.0.1 at 2016-08-22 18:53:16 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/card/short_trivia"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered collection of /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [5 times] (1.8ms)
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (26.1ms)
+Started POST "/resumes" for 127.0.0.1 at 2016-08-22 18:53:26 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zj3wurdwLH7+GOyYgxcY54IMWynM1vrylo5wOPOtwH1cN6/2Im3GeSUFJnunoz8grHQ+iTGVKGXUjvKfJQNiyg==", "resume"=>{"name"=>"asd", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x007f0bc425dab0 @tempfile=#<Tempfile:/tmp/RackMultipart20160822-22761-1yfomc.jpg>, @original_filename="AboutIS.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"AboutIS.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (31.0ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('asd', 'AboutIS.jpg', '2016-08-22 13:23:26', '2016-08-22 13:23:26')[0m
+  [1m[35m (79.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localprofiles.yourstory.com:3000/resumes
+Completed 302 Found in 285ms (ActiveRecord: 111.0ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 18:53:26 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 18:56:09 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.2ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-22 18:58:18 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/card" for 127.0.0.1 at 2016-08-23 19:41:32 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (6.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  
+ActionController::RoutingError (No route matches [GET] "/card"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered collection of /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [5 times] (31.2ms)
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (33.3ms)
+  Rendering /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (15.4ms)
+  Rendered /home/sanjeev/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (117.1ms)
+Started GET "/" for 127.0.0.1 at 2016-08-23 19:41:33 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (30.4ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (66.5ms)
+Completed 200 OK in 1154ms (Views: 1071.1ms | ActiveRecord: 41.7ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2016-08-23 19:41:39 +0530
+Processing by ResumesController#new as HTML
+  Rendering resumes/new.html.erb within layouts/application
+  Rendered resumes/new.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 46ms (Views: 45.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2016-08-23 19:41:48 +0530
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bhpd/4fV3PXmB8WUnmkyz+NzWKUKnrvhTcyrvnLDJc+f9PVwyCacWMHJP4PVSaI+QslTuG/K6RuzSwfS3ZWYTA==", "resume"=>{"name"=>"sa", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x007fdbe16aae18 @tempfile=#<Tempfile:/tmp/RackMultipart20160823-26102-hv7gvs.jpg>, @original_filename="01_store-locator.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[attachment]\"; filename=\"01_store-locator.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `resumes` (`name`, `attachment`, `created_at`, `updated_at`) VALUES ('sa', '01_store-locator.jpg', '2016-08-23 14:11:49', '2016-08-23 14:11:49')[0m
+  [1m[35m (148.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/resumes
+Completed 302 Found in 787ms (ActiveRecord: 149.0ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2016-08-23 19:41:49 +0530
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (0.3ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-29 23:47:19 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (125.6ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ResumesController#index as HTML
+  Rendering resumes/index.html.erb within layouts/application
+  [1m[36mResume Load (61.7ms)[0m  [1m[34mSELECT `resumes`.* FROM `resumes`[0m
+  Rendered resumes/index.html.erb within layouts/application (140.0ms)
+Completed 200 OK in 1508ms (Views: 1334.3ms | ActiveRecord: 79.5ms)
+
+
